@@ -1,7 +1,7 @@
 {
-  "name": "react-skeleton",
+  "name": "weblog",
   "version": "1.0.0",
-  "description": "Skeleton project for React",
+  "description": "Web log",
   "main": "src/index.js",
   "scripts": {
     "dist": "npm run eslint && npm run test && webpack --config webpack.config.js",

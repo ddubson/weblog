@@ -1,7 +1,7 @@
 import React from 'react';
 import {FormGroup} from "react-bootstrap";
 import {shallow} from "enzyme";
-import Entry from "../../src/components/Entry.jsx";
+import Entry from "../../src/components/Entry";
 
 describe("Entry", () => {
     it("should have a FormGroup", () => {

@@ -43,6 +43,7 @@
     "karma-webpack": "^2.0.2",
     "phantomjs-prebuilt": "^2.1.14",
     "react-test-renderer": "16.0.0",
+    "sinon": "^4.0.1",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.1"
   }

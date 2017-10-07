@@ -28,7 +28,7 @@ describe("App", function () {
 
         it("should pass addTodo function to Entry component", () => {
             const wrapper = mount(<App/>);
-            expect(wrapper.find(Entry).first().props().onAddTodo).toEqual(wrapper.state().addTodo)
+            expect(wrapper.find(Entry).prop('onAddTodo')).toBe(wrapper.instance().addTodo)
         });
 
     });

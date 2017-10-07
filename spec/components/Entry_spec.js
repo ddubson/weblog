@@ -1,6 +1,6 @@
 import React from 'react';
-import {Form, FormGroup} from "react-bootstrap";
-import {mount, shallow} from "enzyme";
+import {Form, FormGroup, Button, ControlLabel} from "react-bootstrap";
+import {mount} from "enzyme";
 import Entry from "../../src/components/Entry";
 import {spy, stub} from "sinon";
 
@@ -9,19 +9,22 @@ describe("Entry", () => {
         let wrapper;
 
         beforeEach(() => {
-            wrapper = shallow(<Entry/>);
+            wrapper = mount(<Entry/>);
         });
 
         it("should have a FormGroup", () => {
             expect(wrapper.find(FormGroup).length).toBe(1)
         });
 
-        it("should have an entry text box", () => {
-            expect(wrapper.find(FormGroup).at(0).find("#logEntry").length).toBe(1);
+        it("should have an entry text box with label", () => {
+            expect(wrapper.find(ControlLabel).text()).toEqual("Entry")
+            expect(wrapper.find(FormGroup).find("#logEntry").length).toBe(1);
         });
 
         it("should have a submit button", () => {
-            expect(wrapper.find(FormGroup).at(0).find("#entrySubmit").length).toBe(1);
+            let submitButton = wrapper.find(Button);
+            expect(submitButton.length).toBe(1);
+            expect(submitButton.text()).toEqual("Add Entry");
         });
     });
 

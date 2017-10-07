@@ -1,24 +1,4 @@
-[![Build Status](https://travis-ci.org/ddubson/react-webpack-babel.svg?branch=master)](https://travis-ci.org/ddubson/react-webpack-babel)
-[![bitHound Dependencies](https://www.bithound.io/github/ddubson/react-webpack-babel/badges/dependencies.svg)](https://www.bithound.io/github/ddubson/react-webpack-babel/master/dependencies/npm)
-[![bitHound Dev Dependencies](https://www.bithound.io/github/ddubson/react-webpack-babel/badges/devDependencies.svg)](https://www.bithound.io/github/ddubson/react-webpack-babel/master/dependencies/npm)
-
-# React / Babel / Webpack boilerplate project
-
-This project serves to jumpstart anyone who wants to have ReactJS up and running in no time with all the webpack and babel configurations pre-built.
-
-
-## Building and Running the project
-
-Here's what you do to get this up and running on your machine:
-
-```
-git clone https://github.com/ddubson/react-webpack-babel
-cd react-webpack-babel
-npm install
-npm run start
-```
-
-This project has webpack and babel configured from scratch so you have full control of customizations to add or remove should you choose to.
+# Weblog
 
 ## Commands available
 

@@ -1,6 +1,6 @@
 import {Component} from 'react'
 import React from 'react'
-import {FormGroup, FormControl, Form} from "react-bootstrap";
+import {FormGroup, FormControl, Form, Button, ControlLabel} from "react-bootstrap";
 import PropTypes from 'prop-types'
 
 export default class Entry extends Component {
@@ -20,8 +20,9 @@ export default class Entry extends Component {
             <div>
                 <Form onSubmit={this.addTodo}>
                     <FormGroup>
+                        <ControlLabel>Entry</ControlLabel>
                         <FormControl inputRef={input => this.todo = input} type="text" id="logEntry" placeholder="Enter text..."/>
-                        <FormControl type="submit" id="entrySubmit"/>
+                        <Button bsSize="small" type="submit" id="entrySubmit">Add Entry</Button>
                     </FormGroup>
                 </Form>
             </div>

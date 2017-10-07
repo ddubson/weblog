@@ -15,11 +15,11 @@ export default class App extends React.Component {
 
     render() {
         return (
-            <div>
-                <div>
+            <div className={"container"}>
+                <div className={"row"}>
                     <Entry onAddTodo={this.addTodo}/>
                 </div>
-                <div>
+                <div className={"row"}>
                     <Todos todos={this.state.todos}/>
                 </div>
             </div>

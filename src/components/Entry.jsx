@@ -11,7 +11,10 @@ export default class Entry extends Component {
     }
 
     addTodo(e) {
-        this.props.onAddTodo(this.todo.value);
+        if (this.todo.value) {
+            this.props.onAddTodo(this.todo.value);
+        }
+
         e.preventDefault();
     }
 
@@ -21,7 +24,8 @@ export default class Entry extends Component {
                 <Form onSubmit={this.addTodo}>
                     <FormGroup>
                         <ControlLabel>Entry</ControlLabel>
-                        <FormControl inputRef={input => this.todo = input} type="text" id="logEntry" placeholder="Enter text..."/>
+                        <FormControl inputRef={input => this.todo = input} type="text" id="logEntry"
+                                     placeholder="Enter text..."/>
                         <Button bsSize="small" type="submit" id="entrySubmit">Add Entry</Button>
                     </FormGroup>
                 </Form>

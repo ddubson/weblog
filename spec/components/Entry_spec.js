@@ -28,7 +28,7 @@ describe("Entry", () => {
         });
     });
 
-    describe("when form is submitted", () => {
+    describe("form submit", () => {
         it("should not refresh the page", () => {
             const preventDefault = spy();
             const addTodo = stub();
@@ -42,10 +42,22 @@ describe("Entry", () => {
             const addTodo = spy();
             const wrapper = mount(<Entry onAddTodo={addTodo}/>);
 
-            wrapper.find("#logEntry").node.value = todoContent
+            wrapper.find("#logEntry").node.value = todoContent;
             wrapper.find(Form).simulate('submit');
 
             expect(addTodo.calledWith(todoContent)).toBeTruthy();
         });
+
+        describe("validation", () => {
+            it("should not add a todo if text is empty", () => {
+                const addTodo = spy();
+                const wrapper = mount(<Entry onAddTodo={addTodo}/>);
+
+                wrapper.find("#logEntry").node.value = "";
+                wrapper.find(Form).simulate('submit');
+
+                expect(addTodo.calledOnce).toBeFalsy();
+            });
+        })
     });
 });

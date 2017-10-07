@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ddubson/weblog.svg?branch=master)](https://travis-ci.org/ddubson/weblog)
+
 # Weblog
 
 ## Commands available

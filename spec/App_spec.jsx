@@ -3,9 +3,15 @@ import {mount, shallow} from 'enzyme';
 import App from '../src/App'
 import Entry from "../src/components/Entry";
 import Todos from "../src/components/Todos";
+import AppHeader from "../src/components/AppHeader";
 
 describe("App", function () {
     describe("on initial load of component", () => {
+        it("should have a Header component", () => {
+            const wrapper = shallow(<App/>);
+            expect(wrapper.find(AppHeader).length).toEqual(1);
+        })
+
         it("should have an empty todos list", () => {
             const wrapper = mount(<App/>);
             expect(wrapper.state().todos.length).toBe(0)

@@ -12,14 +12,15 @@ export default class Todos extends Component {
     render() {
         return (
             <ListGroup>
-                {this.props.todos.map((todo, i) =>
-                    <Todo key={i} id={i} todo={todo}/>)
-                }
+                {this.props.todos.map((todo) =>
+                    <Todo key={todo.id} onRemoveTodo={this.props.onRemoveTodo} todo={todo}/>
+                )}
             </ListGroup>
         )
     }
 }
 
 Todos.propTypes = {
-    todos: PropTypes.array.isRequired
+    todos: PropTypes.array.isRequired,
+    onRemoveTodo: PropTypes.func.isRequired
 };

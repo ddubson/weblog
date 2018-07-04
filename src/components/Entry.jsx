@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { FormGroup, FormControl, Form, Button, ControlLabel } from "react-bootstrap";
 import PropTypes from 'prop-types'
 
-export default class Entry extends Component {
+export default class Entry extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {

@@ -1,8 +1,7 @@
 import React from "react";
 import {mount} from "enzyme";
-import Todo from "../../src/components/Todo";
+import Todo from "./Todo";
 import {Button, Glyphicon} from "react-bootstrap";
-import {spy} from "sinon";
 
 describe("Todo", () => {
     const todo = {id: 1, entry: "Todo 1"};
@@ -25,10 +24,10 @@ describe("Todo", () => {
 
     describe("functions", () => {
        it("should be able to remove a todo", () => {
-           const removeTodo = spy();
+           const removeTodo = jest.fn();
            const wrapper = mount(<Todo todo={todo} onRemoveTodo={removeTodo}/>);
            wrapper.find(Button).simulate("click");
-           expect(removeTodo.calledWith(todo.id)).toBe(true);
+           expect(removeTodo).toBeCalledWith(todo.id);
        });
     });
 });

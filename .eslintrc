@@ -1,6 +1,6 @@
 {
   "extends": [
-    "google",
+    "airbnb",
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:flowtype/recommended"
@@ -29,5 +29,8 @@
     "flowtype": {
       "onlyFilesWithFlowAnnotation": false
     }
+  },
+  "rules": {
+    "react/forbid-prop-types": "off"
   }
 }

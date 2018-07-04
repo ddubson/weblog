@@ -1,68 +1,51 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
-import App from './App'
+import { shallow } from 'enzyme';
+import { App } from './App'
 import Entry from "./components/Entry";
-import Todos from "./components/Todos";
+import TodosComponent from "./components/Todos.component";
 import AppHeader from "./components/AppHeader";
 
 describe("App", () => {
   describe("on initial load of component", () => {
+    let wrapper;
+    const todos = [
+      "Some TODO"
+    ];
+    let addTodoSpy;
+    let removeTodoSpy;
+
+    beforeEach(() => {
+      addTodoSpy = jest.fn();
+      removeTodoSpy = jest.fn();
+      wrapper = shallow(<App
+        todos={todos}
+        addTodo={addTodoSpy}
+        removeTodo={removeTodoSpy}
+      />);
+    });
+
     it("should have a Header component", () => {
-      const wrapper = shallow(<App/>);
       expect(wrapper.find(AppHeader).length).toEqual(1);
     });
 
-    it("should have an empty todos list", () => {
-      const wrapper = mount(<App/>);
-      expect(wrapper.state().todos.length).toBe(0)
-    });
-
     it("should display a single Entry prompt", () => {
-      const wrapper = shallow(<App/>);
       expect(wrapper.find(Entry).length).toBe(1);
     });
 
-    it("should display a Todos container", () => {
-      const wrapper = shallow(<App/>);
-      expect(wrapper.find(Todos).length).toBe(1);
+    it("should display a TodosComponent container", () => {
+      expect(wrapper.find(TodosComponent).length).toBe(1);
     });
 
-    it("should pass todos store to Todos component", () => {
-      const wrapper = mount(<App/>);
-      expect(wrapper.find(Todos).props().todos).toEqual(wrapper.state().todos);
+    it("should pass initialTodos store to TodosComponent component", () => {
+      expect(wrapper.find(TodosComponent).props().todos).toEqual(todos);
     });
 
     it("should pass addTodo function to Entry component", () => {
-      const wrapper = mount(<App/>);
-      expect(wrapper.find(Entry).prop('onAddTodo')).toBe(wrapper.instance().addTodo);
+      expect(wrapper.find(Entry).prop('onAddTodo')).toBe(addTodoSpy);
     });
 
-    it("should pass removeTodo function to Todos component", () => {
-      const wrapper = mount(<App/>);
-      expect(wrapper.find(Todos).prop('onRemoveTodo')).toBe(wrapper.instance().removeTodo);
+    it("should pass removeTodo function to TodosComponent component", () => {
+      expect(wrapper.find(TodosComponent).prop('onRemoveTodo')).toBe(removeTodoSpy);
     });
-
   });
-
-  describe("functions", () => {
-    it("should add a todo", () => {
-      const wrapper = mount(<App/>);
-      expect(wrapper.state().todos.length).toBe(0);
-      wrapper.instance().addTodo("an entry");
-      wrapper.update();
-      expect(wrapper.state().todos.length).toBe(1);
-      expect(wrapper.state().todos[0].entry).toEqual("an entry");
-      expect(wrapper.state().todos[0].id).toEqual(1);
-    });
-
-    it("should remove a todo", () => {
-      const wrapper = mount(<App/>);
-      const todo = { id: 1, entry: "An entry" };
-      wrapper.state().todos.push(todo);
-
-      expect(wrapper.state().todos.length).toBe(1);
-      wrapper.instance().removeTodo(todo.id);
-      expect(wrapper.state().todos.length).toBe(0);
-    });
-  })
 });

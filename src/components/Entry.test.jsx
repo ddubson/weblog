@@ -9,7 +9,7 @@ describe("Entry", () => {
 
   beforeEach(() => {
     addTodoCallbackSpy = jest.fn();
-    wrapper = mount(<Entry onAddTodo={addTodoCallbackSpy}/>);
+    wrapper = mount(<Entry onAddTodo={addTodoCallbackSpy} />);
   });
 
   describe("what it should have", () => {

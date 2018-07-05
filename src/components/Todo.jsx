@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
-import { Button, Glyphicon, ListGroupItem } from "react-bootstrap";
+import { Button, Glyphicon } from "react-bootstrap";
+import Paper from "@material-ui/core/Paper";
 
 export default class Todo extends Component {
   constructor(props) {
@@ -17,12 +18,12 @@ export default class Todo extends Component {
     const { todo } = this.props;
 
     return (
-      <ListGroupItem key={todo.id}>
+      <Paper key={todo.id}>
         {`${todo.entry} (${todo.id})`}
         <Button onClick={this.removeTodo} bsSize="xsmall">
           <Glyphicon glyph="remove" />
         </Button>
-      </ListGroupItem>
+      </Paper>
     )
   }
 }

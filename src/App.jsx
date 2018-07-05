@@ -1,5 +1,6 @@
 // @flow
 import React from 'react'
+import Grid from "@material-ui/core/Grid";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import Entry from "./components/Entry";
@@ -11,11 +12,9 @@ export const App = (props: any) => {
   const { addTodo, removeTodo, todos } = props;
 
   return (
-    <div>
-      <div>
-        <AppHeader />
-      </div>
-      <div className="container">
+    <Grid container className={{ flexGrow: 1 }} spacing={16}>
+      <AppHeader />
+      <Grid item xs={12}>
         <div className="row">
           <Entry onAddTodo={addTodo} />
         </div>
@@ -25,8 +24,8 @@ export const App = (props: any) => {
             onRemoveTodo={removeTodo}
           />
         </div>
-      </div>
-    </div>
+      </Grid>
+    </Grid>
   )
 };
 

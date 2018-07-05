@@ -1,14 +1,16 @@
 import * as React from "react";
-import { Navbar } from "react-bootstrap";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
 
 const AppHeader = () => (
-  <Navbar>
-    <Navbar.Header>
-      <Navbar.Brand>
-        Weblog
-      </Navbar.Brand>
-    </Navbar.Header>
-  </Navbar>
+  <AppBar position="static" color="default">
+    <Toolbar>
+      <Typography variant="title" color="inherit">
+        WebLog
+      </Typography>
+    </Toolbar>
+  </AppBar>
 );
 
 export default AppHeader;

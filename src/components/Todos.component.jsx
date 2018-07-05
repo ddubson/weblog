@@ -1,17 +1,17 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import { ListGroup } from "react-bootstrap";
+import Paper from "@material-ui/core/Paper";
 import Todo from "./Todo";
 
 const TodosComponent = (props) => {
   const { todos, onRemoveTodo } = props;
 
   return (
-    <ListGroup>
+    <Paper>
       {todos.map((todo) =>
         <Todo key={todo.id} onRemoveTodo={onRemoveTodo} todo={todo} />
       )}
-    </ListGroup>
+    </Paper>
   )
 };
 

@@ -1,16 +1,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { App } from './App'
-import Entry from "./components/Entry";
+import { Entry } from "./components/Entry";
 import TodosComponent from "./components/Todos.component";
 import AppHeader from "./components/AppHeader";
 
 describe("App", () => {
   describe("on initial load of component", () => {
     let wrapper;
-    const todos = [
-      "Some TODO"
-    ];
+    const todos = ["Some TODO"];
     let addTodoSpy;
     let removeTodoSpy;
 

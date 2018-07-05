@@ -1,8 +1,21 @@
 import React, { PureComponent } from 'react'
-import { FormGroup, FormControl, Form, Button, ControlLabel } from "react-bootstrap";
+import { FormGroup, Form } from "react-bootstrap";
 import PropTypes from 'prop-types'
+import InputLabel from "@material-ui/core/InputLabel";
+import Input from "@material-ui/core/Input";
+import { withStyles } from '@material-ui/core/styles';
+import Button from "@material-ui/core/Button";
 
-export default class Entry extends PureComponent {
+const styles = theme => ({
+  button: {
+    margin: theme.spacing.unit,
+  },
+  input: {
+    display: 'none',
+  },
+});
+
+export class Entry extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,20 +41,22 @@ export default class Entry extends PureComponent {
   }
 
   render() {
+    const { classes } = this.props;
+
     return (
       <div>
         <Form onSubmit={this.addTodo}>
           <FormGroup>
-            <ControlLabel>
+            <InputLabel>
               Entry
-            </ControlLabel>
-            <FormControl
-              type="text"
+            </InputLabel>
+            {' '}
+            <Input
               id="logEntry"
+              type="text"
               onChange={this.onTodoChange}
-              placeholder="Enter text..."
             />
-            <Button bsSize="small" type="submit" id="entrySubmit">
+            <Button variant="contained" type="submit" color="primary" className={classes.button}>
               Add Entry
             </Button>
           </FormGroup>
@@ -52,5 +67,8 @@ export default class Entry extends PureComponent {
 }
 
 Entry.propTypes = {
-  onAddTodo: PropTypes.func.isRequired
+  onAddTodo: PropTypes.func.isRequired,
+  classes: PropTypes.object.isRequired,
 };
+
+export default withStyles(styles)(Entry);

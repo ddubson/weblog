@@ -1,3 +1,4 @@
+// @flow
 import React from 'react'
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
@@ -6,7 +7,7 @@ import TodosComponent from "./components/Todos.component";
 import AppHeader from "./components/AppHeader";
 import { addTodo, removeTodo } from './components/Todos.actions';
 
-export const App = (props) => {
+export const App = (props: any) => {
   const { addTodo, removeTodo, todos } = props;
 
   return (

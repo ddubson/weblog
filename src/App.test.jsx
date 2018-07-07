@@ -10,15 +10,12 @@ describe("App", () => {
     let wrapper;
     const todos = ["Some TODO"];
     let addTodoSpy;
-    let removeTodoSpy;
 
     beforeEach(() => {
       addTodoSpy = jest.fn();
-      removeTodoSpy = jest.fn();
       wrapper = shallow(<App
         todos={todos}
         addTodo={addTodoSpy}
-        removeTodo={removeTodoSpy}
       />);
     });
 
@@ -40,10 +37,6 @@ describe("App", () => {
 
     it("should pass addTodo function to Entry component", () => {
       expect(wrapper.find(Entry).prop('onAddTodo')).toBe(addTodoSpy);
-    });
-
-    it("should pass removeTodo function to TodosComponent component", () => {
-      expect(wrapper.find(TodosComponent).prop('onRemoveTodo')).toBe(removeTodoSpy);
     });
   });
 });

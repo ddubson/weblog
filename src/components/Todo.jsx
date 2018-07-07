@@ -1,34 +1,17 @@
-import React, { Component } from "react";
-import PropTypes from 'prop-types';
-import { Button, Glyphicon } from "react-bootstrap";
+// @flow
+
+import React from "react";
 import Paper from "@material-ui/core/Paper";
+import type { TodoProps } from './Todo.js.flow';
 
-export default class Todo extends Component {
-  constructor(props) {
-    super(props);
-    this.removeTodo = this.removeTodo.bind(this);
-  }
+const Todo = (props: TodoProps) => {
+  const { todo } = props;
 
-  removeTodo() {
-    const { onRemoveTodo, todo } = this.props;
-    onRemoveTodo(todo.id);
-  }
-
-  render() {
-    const { todo } = this.props;
-
-    return (
-      <Paper key={todo.id}>
-        {`${todo.entry} (${todo.id})`}
-        <Button onClick={this.removeTodo} bsSize="xsmall">
-          <Glyphicon glyph="remove" />
-        </Button>
-      </Paper>
-    )
-  }
-}
-
-Todo.propTypes = {
-  todo: PropTypes.object.isRequired,
-  onRemoveTodo: PropTypes.func.isRequired
+  return (
+    <Paper key={todo.id}>
+      {`${todo.entry} (${todo.id})`}
+    </Paper>
+  )
 };
+
+export default Todo;

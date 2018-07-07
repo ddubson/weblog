@@ -4,12 +4,12 @@ import Paper from "@material-ui/core/Paper";
 import Todo from "./Todo";
 
 const TodosComponent = (props) => {
-  const { todos, onRemoveTodo } = props;
+  const { todos } = props;
 
   return (
     <Paper>
       {todos.map((todo) =>
-        <Todo key={todo.id} onRemoveTodo={onRemoveTodo} todo={todo} />
+        <Todo key={todo.id} todo={todo} />
       )}
     </Paper>
   )
@@ -17,7 +17,6 @@ const TodosComponent = (props) => {
 
 TodosComponent.propTypes = {
   todos: PropTypes.array.isRequired,
-  onRemoveTodo: PropTypes.func.isRequired
 };
 
 export default TodosComponent;

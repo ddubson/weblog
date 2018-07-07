@@ -1,15 +1,15 @@
 // @flow
 import React from 'react'
-import Grid from "@material-ui/core/Grid";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import Grid from '@material-ui/core/Grid';
 import Entry from "./components/Entry";
 import TodosComponent from "./components/Todos.component";
 import AppHeader from "./components/AppHeader";
-import { addTodo, removeTodo } from './components/Todos.actions';
+import { addTodo } from './components/Todos.actions';
 
 export const App = (props: any) => {
-  const { addTodo, removeTodo, todos } = props;
+  const { addTodo, todos } = props;
 
   return (
     <Grid container className={{ flexGrow: 1 }} spacing={16}>
@@ -21,7 +21,6 @@ export const App = (props: any) => {
         <div className="row">
           <TodosComponent
             todos={todos}
-            onRemoveTodo={removeTodo}
           />
         </div>
       </Grid>
@@ -35,13 +34,11 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   addTodo,
-  removeTodo,
 };
 
 App.propTypes = {
   todos: PropTypes.array.isRequired,
   addTodo: PropTypes.func.isRequired,
-  removeTodo: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

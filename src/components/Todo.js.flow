@@ -1,0 +1,11 @@
+// @flow
+
+export type TodoType = {
+  id: number,
+  entry: string,
+}
+
+export type TodoProps = {
+  todo: TodoType
+}
+
